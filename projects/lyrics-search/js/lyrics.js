@@ -34,12 +34,13 @@ function searchLyrics() {
   const lyricsBox = document.getElementById("lyrics-display");
   lyricsBox.innerText = "🎵 Searching...";
 
-  fetch(`https://triple-m-backends.onrender.com/lyrics?artist=${encodeURIComponent(artist)}&title=${encodeURIComponent(title)}`)
+ fetch(`https://triple-m-backends.onrender.com/lyrics?artist=${encodeURIComponent(artist)}&title=${encodeURIComponent(title)}`)
     .then(res => res.json())
     .then(data => {
       if (data.lyrics) {
         let lyrics = data.lyrics;
         lyrics = strip ? stripAllTimestamps(lyrics) : keepFirstTimestampOnly(lyrics);
+        document.getElementById("result-heading").innerText = `${title} — ${artist}`;
         lyricsBox.innerText = lyrics;
       } else {
         lyricsBox.innerText = `⚠️ ${data.message || "Lyrics not found."}`;
@@ -49,6 +50,6 @@ function searchLyrics() {
       console.error(err);
       lyricsBox.innerText = "🚨 Error fetching lyrics.";
     });
-}
+} 
 
 document.getElementById("search-button").addEventListener("click", searchLyrics);

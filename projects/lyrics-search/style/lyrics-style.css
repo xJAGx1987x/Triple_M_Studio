@@ -68,6 +68,15 @@ h1 {
   margin-bottom: 1rem;
 }
 
+#result-heading {
+  text-align: center;
+  margin: 1.5rem auto;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--accent-color, #ff66b2); /* use your theme accent if set */
+}
+
+
 .lyrics-box {
   background-color: #1e1e1e;
   padding: 1rem;
