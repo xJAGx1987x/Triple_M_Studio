@@ -19,7 +19,6 @@ body {
   justify-content: flex-start;
 }
 
-
 .container {
   max-width: 800px;
   margin: auto;
@@ -107,6 +106,43 @@ h1 {
 .footer a:hover {
   text-decoration: underline;
 }
+
+::selection {
+  background-color: #ff4fc0; /* or whatever shade you're using */
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #ff4fc0;
+  color: #ffffff;
+}
+
+/* Webkit scrollbar styles (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e; /* or your site's dark background */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 10px;
+  border: 2px solid #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ff4fc0; /* matching highlight pink on hover */
+}
+
+/* Firefox scrollbar dark mode (limited support) */
+html {
+  scrollbar-color: #444 #1e1e1e;
+  scrollbar-width: thin;
+}
+
 
 @media (max-width: 600px) {
   .search-box {
