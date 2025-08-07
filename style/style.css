@@ -64,9 +64,18 @@ h2 {
 }
 
 .project-card:hover .project-thumbnail {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
+a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #ffcc00;
+}
 
 .contact form {
   display: flex;
