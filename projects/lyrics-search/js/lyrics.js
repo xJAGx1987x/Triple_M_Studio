@@ -34,7 +34,7 @@ function searchLyrics() {
   const lyricsBox = document.getElementById("lyrics-display");
   lyricsBox.innerText = "🎵 Searching...";
 
- fetch(`https://triple-m-backends.onrender.com/lyrics?artist=${encodeURIComponent(artist)}&title=${encodeURIComponent(title)}`)
+ fetch(`/.netlify/functions/lyrics-proxy?artist=${encodeURIComponent(artist)}&title=${encodeURIComponent(title)}`)
     .then(res => res.json())
     .then(data => {
       if (data.lyrics) {
