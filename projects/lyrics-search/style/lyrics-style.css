@@ -67,6 +67,53 @@ h1 {
   margin-bottom: 1rem;
 }
 
+/* Parent label styling */
+.controls label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #fff;
+}
+
+/* Hide default checkbox appearance */
+.controls input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #111;
+  margin-right: 0.5em;
+  width: 1.2em;
+  height: 1.2em;
+  border: 2px solid #ff69b4; /* hot pink border */
+  border-radius: 4px;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+/* Custom checkmark (pink square fill) */
+.controls input[type="checkbox"]::before {
+  content: "";
+  width: 0.6em;
+  height: 0.6em;
+  transform: scale(0);
+  transition: transform 0.2s ease-in-out;
+  box-shadow: inset 1em 1em #ff69b4;
+  border-radius: 2px;
+}
+
+/* Show checkmark when checked */
+.controls input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+/* Hover glow */
+.controls input[type="checkbox"]:hover {
+  box-shadow: 0 0 5px #ff69b4aa;
+}
+
+
 #result-heading {
   text-align: center;
   margin: 1.5rem auto;
