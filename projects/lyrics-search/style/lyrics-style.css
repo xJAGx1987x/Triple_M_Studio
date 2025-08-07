@@ -98,3 +98,14 @@ h1 {
 .footer a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 600px) {
+  .search-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box input, .search-box button {
+    width: 100%;
+  }
+}
