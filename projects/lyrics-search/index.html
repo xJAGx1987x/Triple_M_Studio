@@ -1,0 +1,40 @@
+<!-- projects/lyrics-search/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lyrics Search</title>
+  <link rel="stylesheet" href="style/lyrics-style.css">
+</head>
+<body>
+  <div class="main-content">
+    <div class="container">
+      <h1>Lyrics Search</h1>
+
+      <div class="search-box">
+        <input type="text" id="artist" placeholder="Artist" />
+        <input type="text" id="title" placeholder="Song Title" />
+        <button id="search-button">Search</button>
+      </div>
+
+      <div class="controls">
+        <label>
+          <input type="checkbox" id="strip-toggle" />
+          Strip timestamps
+        </label>
+      </div>
+
+      <pre id="lyrics-display" class="lyrics-box">Lyrics will appear here</pre>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>
+      ⚙️ Implemented using <strong>FastAPI</strong> and <strong>syncedlyrics</strong> —
+      handcrafted with regret and caffeine at <a href="https://github.com/TripleMStudio" target="_blank">Triple M Studio</a>.
+    </p>
+  </footer>
+  
+  <script src="js/lyrics.js"></script>
+</body>
+</html>

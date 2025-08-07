@@ -51,7 +51,22 @@ h2 {
   padding: 20px;
   border-radius: 8px;
   border: 1px solid #333;
+  text-align: center;;
 }
+
+.project-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-thumbnail {
+  transform: scale(1.02);
+}
+
 
 .contact form {
   display: flex;
