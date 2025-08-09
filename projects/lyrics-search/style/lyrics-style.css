@@ -8,6 +8,7 @@ body {
   margin: 0;
   background-color: #121212; /* Or whatever dark background you're using */
   color: #fff;
+  font-family: 'Inter', sans-serif;
 }
 
 /* Content wrapper (everything but footer) */
@@ -190,12 +191,73 @@ html {
   scrollbar-width: thin;
 }
 
+.tip-fab-container {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* space between buttons */
+  z-index: 1000;
+}
+
+.tip-fab {
+  position: relative; /* for tooltip positioning */
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  border: 1px solid #ff7ac6;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  transition: opacity .12s ease, transform .12s ease, box-shadow .12s ease;
+  background: rgba(20,20,20,.6);
+  backdrop-filter: saturate(120%) blur(6px);
+  overflow: visible;
+}
+
+.tip-fab:hover { opacity: 1; transform: translateY(-1px); box-shadow: 0 2px 10px rgba(255,122,198,.35) }
+
+.tip-fab:focus-visible { outline: 2px solid #ff7ac6; outline-offset: 2px }
+
+/* Tooltip label */
+.tip-fab::after {
+  content: attr(data-label);           /* default; overridden below for clarity */
+  position: absolute;
+  left: calc(100% + 8px);              /* to the right of the dot */
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  background: rgba(20,20,20,.9);
+  color: #ff7ac6;
+  padding: .25rem .5rem;
+  border-radius: 6px;
+  font-size: .8rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s ease, transform .15s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
+  border: 1px solid rgba(255,122,198,.35);
+}
+
+.tip-fab:hover::after { 
+  opacity: 1; 
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Specific labels */
+.tip-fab.coffee::after { content: "Buy me a coffee" }
+.tip-fab.paypal::after { content: "Tip via PayPal" }
 
 @media (max-width: 600px) {
   .search-box {
     flex-direction: column;
     align-items: stretch;
   }
+
+  .tip-fab-container { right: .75rem; bottom: .75rem }
 
   .search-box input, .search-box button {
     width: 100%;

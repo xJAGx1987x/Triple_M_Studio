@@ -9,3 +9,7 @@
 
 # Local Netlify folder
 .netlify
+
+.env
+replacements.txt
+home-test.js
