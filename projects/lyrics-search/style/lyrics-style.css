@@ -1,5 +1,12 @@
 /* projects/lyrics-search/style/lyrics-style.css */
 
+/* Better viewport handling everywhere */
+:root {
+  --vh: 100svh;           /* modern safe viewport */
+}
+@supports not (height: 100svh) {
+  :root { --vh: 100vh; }  /* fallback */
+}
 /* Whole page layout */
 body {
   display: flex;
@@ -252,14 +259,109 @@ html {
 .tip-fab.paypal::after { content: "Tip via PayPal" }
 
 @media (max-width: 600px) {
+  body {
+    padding: 0.5rem; /* keep edges from touching */
+  }
+
+  .container {
+    max-width: 100%;   /* fill mobile width */
+    padding: 0 0.5rem; /* breathing room */
+  }
+
+  .lyrics-box {
+    max-height: none;  /* let it grow with the page */
+    font-size: 1rem;   /* easier to read on small screens */
+  }
+
+  /* Optional: stack search box vertically */
   .search-box {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .tip-fab-container { right: .75rem; bottom: .75rem }
-
-  .search-box input, .search-box button {
+  .search-box input,
+  .search-box button {
     width: 100%;
+  }
+
+  /* FAB clean positioning */
+  .tip-fab-container {
+    left: 0.75rem;
+    top: 3rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 900px) and (orientation: landscape) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: row; /* side-by-side layout */
+    gap: 1rem;
+  }
+
+  /* Put search and lyrics side-by-side if you want */
+  .search-box {
+    flex-direction: column; /* still keep inputs stacked */
+    min-width: 200px;
+  }
+
+  .lyrics-box {
+    max-height: 80vh; /* give more height than portrait */
+    flex: 1;          /* take up remaining width */
+  }
+
+  .tip-fab-container {
+    left: auto;
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+}
+
+/* Landscape: keep a single column like portrait */
+@media (max-width: 900px) and (orientation: landscape) {
+  /* small safe padding; no fancy layout */
+  body { padding: 0.5rem; }
+
+  .container {
+    max-width: 900px;       /* a bit wider is fine in landscape */
+    padding: 0 1rem;
+    display: block;         /* undo the row flex */
+  }
+
+  /* Title tight so content starts higher */
+  h1 { margin: 0 0 .75rem; }
+
+  /* Keep form stacked and full width */
+  .search-box {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin-bottom: .75rem;
+  }
+  .search-box input,
+  .search-box button { width: 100%; }
+
+  .controls { margin: 0 0 .5rem; }
+
+  #result-heading { margin: .5rem 0; }
+
+  /* Let lyrics grow naturally; avoid inner scroll traps */
+  .lyrics-box {
+    max-height: none;
+    height: auto;
+    overflow: visible;
+  }
+
+  /* FAB: bottom-right */
+  .tip-fab-container {
+    left: 0.75rem;
+    top: .75rem;
   }
 }
